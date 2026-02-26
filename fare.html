@@ -7,8 +7,9 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"; 
 rel="stylesheet">  
 <script 
-src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>;
-<style>
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>;g: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    <style>
     * {
         margin: 0;
         padding: 0;
@@ -18,14 +19,14 @@ src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.j
 
     body {
         height: 100vh;
-        /* Updated to a direct image URL */
-        background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url("https://images.unsplash.com/photo-1449156003053-c302052802c3?auto=format&fit=crop&w=1920") no-repeat center center/cover;
+        
+        background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255,255,255,0.85)), url("https://images.unsplash.com/photo-1449156003053-c302052802c3?auto=format&fit=crop&w=1920") no-repeat center center/cover;
         display: flex;
         flex-direction: column;
     }
 
     .navbar {
-        background: #111;
+        background: #f1f6f7;
         padding: 10px 40px;
         display: flex;
         justify-content: space-between;
@@ -42,7 +43,7 @@ src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.j
         width: 35px;
         height: 35px;
         border-radius: 50%;
-        background: #1e90ff;
+        background: #f1f6f7;
     }
 
     .nav-left a {
@@ -63,7 +64,7 @@ src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.j
     }
 
     .create-btn {
-        background: #1e90ff;
+        background: #f1f6f7;
         border: none;
         padding: 6px 12px;
         color: white;
@@ -86,7 +87,7 @@ src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.j
         display: flex;
         justify-content: space-between;
         align-items: center;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        box-shadow: 0 10px 30px #929090;(0,0,0,0.3);
     }
 
     .map {
@@ -110,7 +111,7 @@ src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.j
     }
 
     .title {
-        background: #2f4f4f;
+        background: #eeff54;
         color: white;
         padding: 12px;
         border-radius: 6px;
@@ -119,7 +120,7 @@ src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.j
     }
 
     .title span {
-        color: orange;
+        color: rgb(243, 242, 240);
         font-weight: bold;
     }
 
@@ -133,7 +134,7 @@ src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.j
         font-weight: bold;
         font-size: 12px;
         margin-bottom: 5px;
-        color: #333;
+        color: #fdfdfd;
     }
 
     select {
@@ -159,21 +160,21 @@ src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.j
         transition: 0.3s;
     }
 
-    .regular { background: white; color: white; }
-    .discount { background: #333; color: white; }
+    .regular { background: rgb(255, 243, 72); color: white; }
+    .discount { background: #68ff63; color: white; }
     .btn:hover { opacity: 0.8; }
 
     .fare-box {
         width: 200px;
         height: 180px;
-        background: #0a1f63;
-        color: white;
+        background: #fc5e5e;
+        color: rgb(0, 0, 0);
         border-radius: 10px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        box-shadow: 0 5px 15px #000000; (243, 241, 241, 0.2);
     }
 
     .fare-box h3 {
@@ -186,7 +187,7 @@ src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.j
     .fare {
         font-size: 32px;
         font-weight: bold;
-        color: #00d4ff;
+        color: #f1f6f7;
     }
 
     .footer {
@@ -194,7 +195,7 @@ src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.j
         color: white;
         padding: 15px;
         font-size: 12px;
-        background: rgba(0,0,0,0.8);
+        background: rgba(243, 241, 241, 0.8);
     }
 </style>
 </head>
@@ -333,6 +334,7 @@ window.onload = calculateFare;
 </body>
 
 </html>
+
 
 
 
