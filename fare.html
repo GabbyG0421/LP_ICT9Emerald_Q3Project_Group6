@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yo Ride Fare Matrix</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+        height: 100vh;
+        /* Updated to a direct image URL */
+        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("https://images.unsplash.com/photo-1449156003053-c302052802c3?auto=format&fit=crop&w=1920") no-repeat center center/cover;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .navbar {
+        background: #111;
+        padding: 10px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-left {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .logo {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background: #1e90ff;
+    }
+
+    .nav-left a {
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .book {
+        color: white;
+        font-size: 13px;
+    }
+
+    .create-btn {
+        background: #1e90ff;
+        border: none;
+        padding: 6px 12px;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .main {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .panel {
+        width: 950px;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 30px;
+        border-radius: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .map {
+        width: 250px;
+        height: 250px;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 2px solid #ddd;
+    }
+
+    .map img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .center {
+        width: 400px;
+        text-align: center;
+    }
+
+    .title {
+        background: #2f4f4f;
+        color: white;
+        padding: 12px;
+        border-radius: 6px;
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+    }
+
+    .title span {
+        color: orange;
+        font-weight: bold;
+    }
+
+    .input-group {
+        margin-bottom: 15px;
+        text-align: left;
+    }
+
+    .input-group label {
+        display: block;
+        font-weight: bold;
+        font-size: 12px;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    select {
+        width: 100%;
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+    }
+
+    .buttons {
+        margin-top: 20px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .btn {
+        flex: 1;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .regular { background: orange; color: white; }
+    .discount { background: #333; color: white; }
+    .btn:hover { opacity: 0.8; }
+
+    .fare-box {
+        width: 200px;
+        height: 180px;
+        background: #0a1f63;
+        color: white;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .fare-box h3 {
+        margin-bottom: 10px;
+        font-weight: normal;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .fare {
+        font-size: 32px;
+        font-weight: bold;
+        color: #00d4ff;
+    }
+
+    .footer {
+        text-align: center;
+        color: white;
+        padding: 15px;
+        font-size: 12px;
+        background: rgba(0,0,0,0.8);
+    }
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="nav-left">
+        <div class="logo"></div>
+        <a href="#">Home</a>
+        <a href="#">Fare Matrix</a>
+        <a href="#">Schedule</a>
+        <a href="#">Help</a>
+    </div>
+    <div class="nav-right">
+        <span class="book">Book Now</span>
+        <button class="create-btn">Create Account</button>
+    </div>
+</div>
+
+<div class="main">
+    <div class="panel">
+        
+        <div class="map">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Metro_Manila_LRT_MRT_map.png/640px-Metro_Manila_LRT_MRT_map.png" alt="Map">
+        </div>
+
+        <div class="center">
+            <div class="title">
+                <span>Yo Ride</span> Fare Matrix
+            </div>
+
+            <div class="input-group">
+                <label>PICK-UP LOCATION</label>
+                <select id="pickup" onchange="calculateFare()">
+                    <option value="33">Recto</option>
+                    <option value="31">Legarda</option>
+                    <option value="28">Pureza</option>
+                    <option value="26">V. Mapa</option>
+                    <option value="25">J. Ruiz</option>
+                    <option value="23">Gilmore</option>
+                    <option value="22">Betty Go-Belmonte</option>
+                    <option value="21">Araneta-Cubao</option>
+                    <option value="19">Anonas</option>
+                    <option value="18">Katipunan</option>
+                    <option value="16">Santolan</option>
+                    <option value="15">Marikina</option>
+                    <option value="13">Antipolo</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>DROP-OFF LOCATION</label>
+                <select id="dropoff" onchange="calculateFare()">
+                    <option value="33">Recto</option>
+                    <option value="31">Legarda</option>
+                    <option value="28" selected>Pureza</option>
+                    <option value="26">V. Mapa</option>
+                    <option value="25">J. Ruiz</option>
+                    <option value="23">Gilmore</option>
+                    <option value="22">Betty Go-Belmonte</option>
+                    <option value="21">Araneta-Cubao</option>
+                    <option value="19">Anonas</option>
+                    <option value="18">Katipunan</option>
+                    <option value="16">Santolan</option>
+                    <option value="15">Marikina</option>
+                    <option value="13">Antipolo</option>
+                </select>
+            </div>
+
+            <div class="buttons">
+                <button class="btn regular" onclick="setDiscount(false)">Regular</button>
+                <button class="btn discount" onclick="setDiscount(true)">PWD/Senior/Student</button>
+            </div>
+        </div>
+
+        <div class="fare-box">
+            <h3>Total Fare</h3>
+            <div class="fare" id="fareDisplay">₱ 15.00</div>
+        </div>
+
+    </div>
+</div>
+
+<div class="footer">
+    Your Name | Grade & Section | Feb 2026
+</div>
+
+<script>
+let isDiscounted = false;
+
+function setDiscount(status) {
+    isDiscounted = status;
+    calculateFare();
+}
+
+function calculateFare() {
+    const pickup = parseInt(document.getElementById("pickup").value);
+    const dropoff = parseInt(document.getElementById("dropoff").value);
+    const display = document.getElementById("fareDisplay");
+
+    // Basic logic: Base fare 15 PHP + 2 PHP per station travel
+    const distance = Math.abs(pickup - dropoff);
+    
+    if (distance === 0) {
+        display.innerHTML = "₱ 0.00";
+        return;
+    }
+
+    let total = 15 + (distance * 2);
+
+    // Apply 20% discount if button clicked
+    if (isDiscounted) {
+        total = total * 0.8;
+    }
+
+    display.innerHTML = "₱ " + total.toFixed(2);
+}
+
+// Initialize on load
+window.onload = calculateFare;
+</script>
+
+</body>
+</html>
