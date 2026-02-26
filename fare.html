@@ -198,20 +198,31 @@
 
 <body>
 
-<div class="navbar">
-    <div class="nav-left">
-        <div class="logo"></div>
-        <a href=index.html">Home</a>
-        <a href="fare.html">Fare Matrix</a>
-        <a href="#">Schedule</a>
-        <a href="#">Help</a>
-    </div>
-    <div class="nav-right">
-        <span class="book">Book Now</span>
-        <button class="create-btn">Create Account</button>
-    </div>
-</div>
+<nav class="navbar navbar-expand-lg navbar-light navbar-custom shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="https://cdn.everskies.com/media/attachment/zgufaRYoPJ5wLJzhNgOO.png" height="100">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#yoNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
+            <div class="collapse navbar-collapse" id="yoNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link nav-link-custom" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-custom" href="#">Fare Matrix</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-custom" href="#">Schedule</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-custom" href="#">Help</a></li>
+                </ul>
+                
+                <div class="d-flex align-items-center">
+                    <a href="#" class="text-dark fw-bold me-4 text-decoration-underline small">Book Now</a>
+                    <button class="btn btn-create-acc">Create Account</button>
+                </div>
+            </div>
+        </div>
+    </nav>
 <div class="main">
     <div class="panel">
         
@@ -318,3 +329,4 @@ window.onload = calculateFare;
 </body>
 
 </html>
+
